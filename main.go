@@ -30,8 +30,7 @@ func createSnippet(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 
 		w.Header().Set("Allow", http.MethodPost)
-		w.WriteHeader(405)
-		w.Write([]byte("Method not allowed"))
+		http.Error(w, "Method Not Allowed", 405) // This is used to send the status code and the strin as the response body.
 		return
 	}
 
