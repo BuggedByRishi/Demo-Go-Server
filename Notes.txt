@@ -14,3 +14,5 @@
 - Go servemux supports two types of URl's : 
     1. Fixed path : does not end with a /
     2. Subtree path : ends with  a /
+
+- Used w.Header().Set() to add a new header to the response header.
