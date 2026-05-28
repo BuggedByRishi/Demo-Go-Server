@@ -10,6 +10,12 @@ func Drake(w http.ResponseWriter, r *http.Request) {
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
+
+	if r.URL.Path != "/" {
+		http.NotFound(w, r)
+		return
+	}
+
 	w.Write([]byte("Hello from Snippetbox"))
 }
 
@@ -25,12 +31,12 @@ func createSnippet(w http.ResponseWriter, r *http.Request) {
 func main() {
 	// Register the two new handler functions and corresponding URL patterns with
 	// the servemux, in exactly the same way that we did before.
-	mux := http.NewServeMux()
-	mux.HandleFunc("/", home)
-	mux.HandleFunc("/Drake", Drake)
-	mux.HandleFunc("/snippet", showSnippet)
-	mux.HandleFunc("/snippet/create", createSnippet)
+	http.HandleFunc("/", home)
+	http.HandleFunc("/Drake", Drake)
+	http.HandleFunc("/snippet", showSnippet)
+	http.HandleFunc("/snippet/create", createSnippet)
+
 	log.Println("Starting server on :4000")
-	err := http.ListenAndServe(":4000", mux)
+	err := http.ListenAndServe(":4000", nil)
 	log.Fatal(err)
 }

@@ -10,3 +10,7 @@
 
 - err := http.ListenAndServe(":8080", mux)  In this the format to access a specific thing we should use the format as host:port
     if not them the post return all the responses.
+
+- Go servemux supports two types of URl's : 
+    1. Fixed path : does not end with a /
+    2. Subtree path : ends with  a /
