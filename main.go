@@ -26,17 +26,25 @@ func showSnippet(w http.ResponseWriter, r *http.Request) {
 
 // Add a createSnippet handler function.
 func createSnippet(w http.ResponseWriter, r *http.Request) {
+
+	if r.Method != http.MethodPost {
+		w.WriteHeader(405)
+		w.Write([]byte("Method not allowed"))
+		return
+	}
+
 	w.Write([]byte("Create a new snippet..."))
 }
 func main() {
 	// Register the two new handler functions and corresponding URL patterns with
 	// the servemux, in exactly the same way that we did before.
-	http.HandleFunc("/", home)
-	http.HandleFunc("/Drake", Drake)
-	http.HandleFunc("/snippet", showSnippet)
-	http.HandleFunc("/snippet/create", createSnippet)
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", home)
+	mux.HandleFunc("Drake.example.org/", Drake)
+	mux.HandleFunc("/snippet", showSnippet)
+	mux.HandleFunc("/snippet/create", createSnippet)
 
 	log.Println("Starting server on :4000")
-	err := http.ListenAndServe(":4000", nil)
+	err := http.ListenAndServe(":4000", mux)
 	log.Fatal(err)
 }
