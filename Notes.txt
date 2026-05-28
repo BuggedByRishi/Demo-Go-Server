@@ -1,0 +1,9 @@
+Module path : rishi.net  (used to define third part packages).
+
+Three main essentials : 
+
+  (Writes HTTP response)                    1. Handeler : Handelers are responsible for executing the program logic and writing HTTP response header and bodies.
+
+  (Maps the URL's with the Handeler)        2. Router(servmux) : This maps the URL patterns and the handlers, One servmux has all the routes for your application.
+
+  (Listerns from the incomming request)     3. Web Server : We can establish Web Server and and listen from the incomming request 
