@@ -16,3 +16,5 @@
     2. Subtree path : ends with  a /
 
 - Used w.Header().Set() to add a new header to the response header.
+
+- cmd is the main executable directory.
