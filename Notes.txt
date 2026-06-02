@@ -18,3 +18,5 @@
 - Used w.Header().Set() to add a new header to the response header.
 
 - cmd is the main executable directory.
+
+- pg_dump : This is a command utility which is used to backup the database and export all the database schemas(tables, views, functions)
