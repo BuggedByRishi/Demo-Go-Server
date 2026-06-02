@@ -25,3 +25,6 @@
 
 - In Go it is common way to manage configuration settings is to use command line flags when starting an application
 
+- The function we used flag.String() can be used to convert anything into string form if not then the application will log an error
+
+- 
