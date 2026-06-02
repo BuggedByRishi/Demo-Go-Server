@@ -23,3 +23,5 @@
 
 - hhtp.StripPrefix is a built-in http middleware which is used to srtip the prefix form the URL before passing the request to another
 
+- In Go it is common way to manage configuration settings is to use command line flags when starting an application
+
