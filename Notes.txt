@@ -27,4 +27,8 @@
 
 - The function we used flag.String() can be used to convert anything into string form if not then the application will log an error
 
+- Leveled Logging is used to filter the error messages according to their importance
+
+- Putting dependencies in Global variable, it makes the code less error prone and easy for unit testing
+
 - 
